@@ -35,3 +35,18 @@ struct RefreshRequest: Codable {
         case refreshToken = "refresh_token"
     }
 }
+
+/// /api/v1/auth/refresh 的响应（不含 user 字段）
+struct RefreshResponse: Codable {
+    let accessToken: String
+    let refreshToken: String
+    let expiresIn: Int
+    let tokenType: String
+
+    enum CodingKeys: String, CodingKey {
+        case accessToken = "access_token"
+        case refreshToken = "refresh_token"
+        case expiresIn = "expires_in"
+        case tokenType = "token_type"
+    }
+}

@@ -43,7 +43,7 @@ actor AuthService {
             let resp = try await client.post(
                 path: "/api/v1/auth/refresh",
                 body: req,
-                responseType: LoginResponse.self
+                responseType: RefreshResponse.self
             )
             KeychainHelper.save(resp.accessToken, for: .accessToken)
             KeychainHelper.save(resp.refreshToken, for: .refreshToken)
